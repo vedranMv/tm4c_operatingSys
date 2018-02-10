@@ -1,0 +1,848 @@
+******************************************************************************
+                  TI ARM Linker Unix v16.9.3                   
+******************************************************************************
+>> Linked Sat Feb 10 20:19:24 2018
+
+OUTPUT FILE NAME:   <tm4c_operatingSys.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000034e5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  00004296  000fbd6a  R  X
+  SRAM                  20000000   00040000  000016ee  0003e912  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00004298   00004298    r-x
+  00000000    00000000    00000208   00000208    r-- .intvecs
+  00000208    00000208    00003b2a   00003b2a    r-x .text
+  00003d34    00003d34    0000050c   0000050c    r-- .const
+  00004240    00004240    00000058   00000058    r-- .cinit
+20000000    20000000    000016f6   00000000    rw-
+  20000000    20000000    0000026c   00000000    rw- .vtable
+  2000026c    2000026c    00000800   00000000    rw- .stack
+  20000a70    20000a70    00000800   00000000    rw- .sysmem
+  20001270    20001270    0000040c   00000000    rw- .bss
+  20001680    20001680    00000076   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000208     
+                  00000000    00000208     tm4c1294ncpdt_startup_ccs.obj (.intvecs)
+
+.text      0    00000208    00003b2a     
+                  00000208    0000069c     main.obj (.text)
+                  000008a4    000004fc     taskScheduler.obj (.text)
+                  00000da0    000004e0     eventLog.obj (.text)
+                  00001280    0000049c     uartstdio.obj (.text)
+                  0000171c    000003d6     linkedList.obj (.text)
+                  00001af2    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : i_div0.obj (.text)
+                  00001af4    000003d0                                   : memory.obj (.text)
+                  00001ec4    00000330     testModule.obj (.text)
+                  000021f4    000002e6     taskEntry.obj (.text)
+                  000024da    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : mpu_init.obj (.text)
+                  000024dc    00000200     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  000026dc    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  00002892    00000002                                   : newhandler.obj (.text)
+                  00002894    00000170     uartHW.obj (.text)
+                  00002a04    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.obj (.text)
+                  00002b3a    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00002c6c    0000010c     hal_common_tm4c.obj (.text)
+                  00002d78    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  00002e74    000000f4                                   : dtor_list.obj (.text)
+                  00002f68    000000bc                                   : s_trunc.obj (.text)
+                  00003024    000000b4     hal_ts_tm4c.obj (.text)
+                  000030d8    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00003174    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  000031fa    0000007a                                   : memset_t2.obj (.text)
+                  00003274    00000070                                   : autoinit.obj (.text)
+                  000032e4    0000006e                                   : fd_tos_t2.obj (.text)
+                  00003352    00000002                                   : startup.obj (.text)
+                  00003354    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  000033bc    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  00003424    00000064     taskScheduler.obj (.text:_ZN11Performance11TaskEndHookERKy)
+                  00003488    0000005c     taskScheduler.obj (.text:_ZN11Performance13TaskStartHookERKyS1_S1_)
+                  000034e4    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00003538    00000054                                   : exit.obj (.text)
+                  0000358c    0000004c                                   : cpy_tbl.obj (.text)
+                  000035d8    0000004a     taskScheduler.obj (.text:_ZNV13TaskScheduler8PopFrontEv)
+                  00003622    00000002     --HOLE-- [fill = 0]
+                  00003624    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  0000366c    00000048                   : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  000036b4    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.obj (.text)
+                  000036fc    00000046     driverlib.lib : uart.obj (.text:UARTConfigSetExpClk)
+                  00003742    00000002     --HOLE-- [fill = 0]
+                  00003744    00000040                   : uart.obj (.text:_UARTIntNumberGet)
+                  00003784    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.obj (.text)
+                  000037c4    0000003e     taskEntry.obj (.text:_ZN11PerformanceaSERKS_)
+                  00003802    0000003e     taskEntry.obj (.text:_ZN11PerformanceaSERVKS_)
+                  00003840    0000003c     taskEntry.obj (.text:_ZN11PerformanceC1Ev)
+                  0000387c    0000003c     taskEntry.obj (.text:_ZNV11PerformanceaSERVKS_)
+                  000038b8    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralPresent)
+                  000038f0    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.obj (.text)
+                  00003928    00000034     driverlib.lib : interrupt.obj (.text:IntRegister)
+                  0000395c    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00003990    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : new_.obj (.text)
+                  000039c0    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000039ea    0000002a     main.obj (.text:_ZNV13TaskScheduler6AddArgIfEEvT_)
+                  00003a14    0000002a     main.obj (.text:_ZNV13TaskScheduler6AddArgIhEEvT_)
+                  00003a3e    0000002a     main.obj (.text:_ZNV13TaskScheduler6AddArgIsEEvT_)
+                  00003a68    00000024     driverlib.lib : interrupt.obj (.text:IntPrioritySet)
+                  00003a8c    00000020                   : uart.obj (.text:UARTDisable)
+                  00003aac    00000020                   : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  00003acc    00000020     linkedList.obj (.text:_ZNV10LinkedList7IsEmptyEv)
+                  00003aec    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : guard.obj (.text)
+                  00003b0c    0000001e     driverlib.lib : pwm.obj (.text:PWMPulseWidthGet)
+                  00003b2a    0000001e                   : pwm.obj (.text:PWMPulseWidthSet)
+                  00003b48    0000001c                   : systick.obj (.text:SysTickIntRegister)
+                  00003b64    00000018                   : uart.obj (.text:UARTIntRegister)
+                  00003b7c    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00003b94    00000014     driverlib.lib : fpu.obj (.text:FPUStackingEnable)
+                  00003ba8    00000014                   : systick.obj (.text:SysTickDisable)
+                  00003bbc    00000014                   : systick.obj (.text:SysTickEnable)
+                  00003bd0    00000014                   : systick.obj (.text:SysTickIntEnable)
+                  00003be4    00000014                   : uart.obj (.text:UARTEnable)
+                  00003bf8    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00003c0c    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeUART)
+                  00003c1e    00000002     --HOLE-- [fill = 0]
+                  00003c20    00000010                   : fpu.obj (.text:FPUEnable)
+                  00003c30    00000010                   : interrupt.obj (.text:IntMasterDisable)
+                  00003c40    00000010                   : interrupt.obj (.text:IntMasterEnable)
+                  00003c50    00000010                   : sysctl.obj (.text:SysCtlReset)
+                  00003c60    00000010                   : systick.obj (.text:SysTickPeriodSet)
+                  00003c70    00000010     linkedList.obj (.text:_ZN7_llnodeD1Ev)
+                  00003c80    00000010     taskScheduler.obj (.text:_ZNV13TaskScheduler9PeekFrontEv)
+                  00003c90    0000000e     driverlib.lib : uart.obj (.text:UARTCharsAvail)
+                  00003c9e    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  00003cac    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsid)
+                  00003cb8    0000000c                   : cpu.obj (.text:CPUcpsie)
+                  00003cc4    0000000c     taskEntry.obj (.text:_ZN11PerformanceD1Ev)
+                  00003cd0    0000000c     taskScheduler.obj (.text:_ZNV13TaskScheduler7IsEmptyEv)
+                  00003cdc    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00003ce8    0000000c     tm4c1294ncpdt_startup_ccs.obj (.text)
+                  00003cf4    0000000a     driverlib.lib : uart.obj (.text:UARTCharGet)
+                  00003cfe    0000000a                   : uart.obj (.text:UARTCharPut)
+                  00003d08    00000008                   : uart.obj (.text:UARTIntEnable)
+                  00003d10    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : delete.obj (.text)
+                  00003d18    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00003d1e    00000006                   : uart.obj (.text:UARTClockSourceSet)
+                  00003d24    00000006                   : uart.obj (.text:UARTFIFOLevelSet)
+                  00003d2a    00000004                   : uart.obj (.text:UARTIntClear)
+                  00003d2e    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+
+.const     0    00003d34    0000050c     
+                  00003d34    000001b0     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  00003ee4    0000009c                   : interrupt.obj (.const:g_pui32Regs)
+                  00003f80    00000090                   : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00004010    00000070                   : interrupt.obj (.const)
+                  00004080    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  000040ec    00000069     main.obj (.const:evName$1)
+                  00004155    00000003     --HOLE-- [fill = 0]
+                  00004158    00000040     driverlib.lib : uart.obj (.const:g_ppui32UARTIntMap)
+                  00004198    00000040                   : uart.obj (.const:g_ppui32UARTIntMapSnowflake)
+                  000041d8    00000030                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  00004208    00000012     uartstdio.obj (.const:.string)
+                  0000421a    00000002     --HOLE-- [fill = 0]
+                  0000421c    0000000c     uartstdio.obj (.const:g_ui32UARTBase)
+                  00004228    0000000c     uartstdio.obj (.const:g_ui32UARTPeriph)
+                  00004234    00000008     driverlib.lib : sysctl.obj (.const)
+                  0000423c    00000004     uartstdio.obj (.const)
+
+.cinit     0    00004240    00000058     
+                  00004240    00000024     (.cinit..data.load) [load image, compression = lzss]
+                  00004264    0000000c     (__TI_handler_table)
+                  00004270    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004278    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  00004280    00000018     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.vtable    0    20000000    0000026c     UNINITIALIZED
+                  20000000    0000026c     driverlib.lib : interrupt.obj (.vtable)
+
+.stack     0    2000026c    00000800     UNINITIALIZED
+                  2000026c    00000800     --HOLE--
+
+.sysmem    0    20000a70    00000800     UNINITIALIZED
+                  20000a70    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+                  20000a78    000007f8     --HOLE--
+
+.bss       0    20001270    0000040c     UNINITIALIZED
+                  20001270    00000200     uartHW.obj (.bss:txBuffer$1)
+                  20001470    00000168     eventLog.obj (.bss:_ZZN8EventLog4GetIEvE17singletonInstance)
+                  200015d8    00000060     taskScheduler.obj (.bss:_ZZN13TaskScheduler4GetIEvE17singletonInstance)
+                  20001638    00000014     testModule.obj (.bss:_ZZN7TestMod4GetIEvE17singletonInstance)
+                  2000164c    00000014     (.common:_kerInterface)
+                  20001660    00000004     uartHW.obj (.bss:_ZZN10SerialPort4GetIEvE17singletonInstance)
+                  20001664    00000004     eventLog.obj (.bss)
+                  20001668    00000004     taskScheduler.obj (.bss)
+                  2000166c    00000004     testModule.obj (.bss)
+                  20001670    00000004     uartHW.obj (.bss)
+                  20001674    00000004     (.common:__dso_handle)
+                  20001678    00000004     (.common:g_ui32SysClock)
+
+.data      0    20001680    00000076     UNINITIALIZED
+                  20001680    00000028     taskScheduler.obj (.data:__kernelVector)
+                  200016a8    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  200016b4    0000000c                                   : memory.obj (.data:$O1$$)
+                  200016c0    0000000c     taskScheduler.obj (.data)
+                  200016cc    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data:$O1$$)
+                  200016d4    00000008     hal_ts_tm4c.obj (.data)
+                  200016dc    00000005     uartstdio.obj (.data)
+                  200016e1    00000001     --HOLE--
+                  200016e2    00000002     linkedList.obj (.data)
+                  200016e4    00000004     eventLog.obj (.data)
+                  200016e8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : dtor_list.obj (.data)
+                  200016ec    00000004                                   : stkdepth_vars.obj (.data)
+                  200016f0    00000004                                   : vars.obj (.data)
+                  200016f4    00000002     uartHW.obj (.data)
+
+MODULE SUMMARY
+
+       Module                          code    ro data   rw data
+       ------                          ----    -------   -------
+    ./
+       main.obj                        1818    105       20     
+       uartstdio.obj                   1180    46        5      
+       tm4c1294ncpdt_startup_ccs.obj   12      520       0      
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          3010    671       25     
+                                                                
+    ./HAL/tm4c1294/
+       hal_common_tm4c.obj             268     0         4      
+       hal_ts_tm4c.obj                 180     0         8      
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          448     0         12     
+                                                                
+    ./init/
+       eventLog.obj                    1248    0         368    
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          1248    0         368    
+                                                                
+    ./serialPort/
+       uartHW.obj                      368     0         522    
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          368     0         522    
+                                                                
+    ./taskScheduler/
+       taskScheduler.obj               1570    0         152    
+       linkedList.obj                  1030    0         2      
+       taskEntry.obj                   998     0         0      
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          3598    0         154    
+                                                                
+    ./testModule/
+       testModule.obj                  816     0         24     
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          816     0         24     
+                                                                
+    /home/v125/Programming/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       memory.obj                      976     0         12     
+       fd_add_t2.obj                   438     0         0      
+       fd_div_t2.obj                   310     0         0      
+       dtor_list.obj                   244     0         8      
+       fd_mul_t2.obj                   252     0         0      
+       s_trunc.obj                     188     0         0      
+       memcpy_t2.obj                   156     0         0      
+       fd_cmp_t2.obj                   134     0         0      
+       memset_t2.obj                   122     0         0      
+       autoinit.obj                    112     0         0      
+       fd_tos_t2.obj                   110     0         0      
+       copy_decompress_lzss.obj        104     0         0      
+       exit.obj                        84      0         12     
+       boot.obj                        84      0         0      
+       cpy_tbl.obj                     76      0         0      
+       fd_toi_t2.obj                   72      0         0      
+       u_divt2.obj                     64      0         0      
+       fs_tod_t2.obj                   56      0         0      
+       new_.obj                        48      0         0      
+       guard.obj                       32      0         0      
+       _lock.obj                       20      0         8      
+       args_main.obj                   24      0         0      
+       copy_decompress_none.obj        14      0         0      
+       copy_zero_init.obj              12      0         0      
+       delete.obj                      8       0         0      
+       pre_init.obj                    4       0         0      
+       stkdepth_vars.obj               0       0         4      
+       vars.obj                        0       0         4      
+       i_div0.obj                      2       0         0      
+       mpu_init.obj                    2       0         0      
+       newhandler.obj                  2       0         0      
+       startup.obj                     2       0         0      
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          3752    0         48     
+                                                                
+    /media/v125/shared/Programming/ti/TivaWare_C_Series-2.1.4.178/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                      746     596       0      
+       interrupt.obj                   224     268       620    
+       gpio.obj                        438     144       0      
+       uart.obj                        268     128       0      
+       systick.obj                     104     0         0      
+       pwm.obj                         60      0         0      
+       fpu.obj                         36      0         0      
+       cpu.obj                         24      0         0      
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          1900    1136      620    
+                                                                
+       Heap:                           0       0         2048   
+       Stack:                          0       0         2048   
+       Linker Generated:               0       88        0      
+    +--+-------------------------------+-------+---------+---------+
+       Grand Total:                    15140   1895      5869   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00004280 records: 3, size/record: 8, table size: 24
+	.data: load addr=00004240, load size=00000024 bytes, run addr=20001680, run size=00000076 bytes, compression=lzss
+	.bss: load addr=00004270, load size=00000008 bytes, run addr=20001270, run size=0000040c bytes, compression=zero_init
+	.vtable: load addr=00004278, load size=00000008 bytes, run addr=20000000, run size=0000026c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00004264 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                     
+-------   ----                                     
+00003539  C$$EXIT                                  
+00003cad  CPUcpsid                                 
+00003cb9  CPUcpsie                                 
+00003c21  FPUEnable                                
+00003b95  FPUStackingEnable                        
+000039c1  GPIODirModeSet                           
+00002b3b  GPIOPadConfigSet                         
+00003625  GPIOPinConfigure                         
+00003c0d  GPIOPinTypeUART                          
+00002c77  HAL_BOARD_CLOCK_Init                     
+00002d25  HAL_BOARD_InterruptEnable                
+00002c93  HAL_BOARD_Reset                          
+00002c9b  HAL_DelayUS                              
+00002d4f  HAL_GetPWM                               
+00002d3d  HAL_SetPWM                               
+000030c7  HAL_TS_GetTimeStepMS                     
+00003025  HAL_TS_InitSysTick                       
+0000309b  HAL_TS_StartSysTick                      
+000030b1  HAL_TS_StopSysTick                       
+00003355  IntEnable                                
+00003c31  IntMasterDisable                         
+00003c41  IntMasterEnable                          
+00003a69  IntPrioritySet                           
+00003929  IntRegister                              
+00003b0d  PWMPulseWidthGet                         
+00003b2b  PWMPulseWidthSet                         
+00003ce9  ResetISR                                 
+UNDEFED   SHT$$INIT_ARRAY$$Base                    
+UNDEFED   SHT$$INIT_ARRAY$$Limit                   
+000024dd  SysCtlClockFreqSet                       
+00003d19  SysCtlDelay                              
+0000395d  SysCtlPeripheralEnable                   
+000038b9  SysCtlPeripheralPresent                  
+00003c51  SysCtlReset                              
+00003ba9  SysTickDisable                           
+00003bbd  SysTickEnable                            
+00003bd1  SysTickIntEnable                         
+00003b49  SysTickIntRegister                       
+00003c61  SysTickPeriodSet                         
+00002895  UART0RxIntHandler                        
+00003cf5  UARTCharGet                              
+00003cff  UARTCharPut                              
+00003c91  UARTCharsAvail                           
+00003d1f  UARTClockSourceSet                       
+000036fd  UARTConfigSetExpClk                      
+00003a8d  UARTDisable                              
+00003be5  UARTEnable                               
+00003d25  UARTFIFOLevelSet                         
+00003d2b  UARTIntClear                             
+00003d09  UARTIntEnable                            
+00003b65  UARTIntRegister                          
+00001281  UARTStdioConfig                          
+000013c7  UARTgetc                                 
+0000130d  UARTgets                                 
+000016e7  UARTprintf                               
+000013ed  UARTvprintf                              
+000012c7  UARTwrite                                
+00002c6d  UNUSED                                   
+00002d0b  _TM4CMsToCycles                          
+000004cd  _Z11STAT_InitSWv                         
+00000967  _Z14TS_GlobalCheckv                      
+000008a5  _Z14TS_RegCallbackP12_kernelEntryh       
+0000094d  _Z15_TSSyncCallbackv                     
+000008bf  _Z18_TS_KernelCallbackv                  
+00000da1  _Z21_EVLOG_KernelCallbackv               
+00002893  _Z21__default_new_handlerv               
+00000209  _Z22STATISTICS_KerCallbackv              
+00001ec5  _Z23_TESTMOD_KernelCallbackv             
+0000177f  _ZN10LinkedListC1Ev                      
+0000177f  _ZN10LinkedListC2Ev                      
+00001763  _ZN10LinkedListD1Ev                      
+00001763  _ZN10LinkedListD2Ev                      
+000028e5  _ZN10SerialPort4GetIEv                   
+00002911  _ZN10SerialPort4GetPEv                   
+00002987  _ZN10SerialPort4SendEPKcz                
+00002919  _ZN10SerialPort6InitHWEv                 
+000029af  _ZN10SerialPort7AddHookEPFvPhPtE         
+000029c1  _ZN10SerialPortC1Ev                      
+000029c1  _ZN10SerialPortC2Ev                      
+000029cd  _ZN10SerialPortD1Ev                      
+000029cd  _ZN10SerialPortD2Ev                      
+00003425  _ZN11Performance11TaskEndHookERKy        
+00003489  _ZN11Performance13TaskStartHookERKyS1_S1_
+00003841  _ZN11PerformanceC1Ev                     
+00003cc5  _ZN11PerformanceD1Ev                     
+000037c5  _ZN11PerformanceaSERKS_                  
+00003803  _ZN11PerformanceaSERVKS_                 
+00000ac7  _ZN13TaskScheduler15ValidKernModuleEh    
+00000a93  _ZN13TaskScheduler4GetIEv                
+00000abf  _ZN13TaskScheduler4GetPEv                
+00000d51  _ZN13TaskSchedulerC1Ev                   
+00000d51  _ZN13TaskSchedulerC2Ev                   
+00000d7d  _ZN13TaskSchedulerD1Ev                   
+00000d7d  _ZN13TaskSchedulerD2Ev                   
+00002085  _ZN7TestMod10PrintFloatEf                
+00001fd9  _ZN7TestMod10PrintInt16Esh               
+00002015  _ZN7TestMod11PrintStringEPc              
+00001f73  _ZN7TestMod4GetIEv                       
+00001f9f  _ZN7TestMod4GetPEv                       
+00001fa7  _ZN7TestMod6InitHWEv                     
+00001fb9  _ZN7TestMod6InitSWEv                     
+000020fb  _ZN7TestModC1Ev                          
+000020fb  _ZN7TestModC2Ev                          
+0000210f  _ZN7TestModD1Ev                          
+0000210f  _ZN7TestModD2Ev                          
+00001739  _ZN7_llnodeC1ERV9TaskEntryPVS_S4_        
+0000171d  _ZN7_llnodeC1Ev                          
+00001739  _ZN7_llnodeC2ERV9TaskEntryPVS_S4_        
+0000171d  _ZN7_llnodeC2Ev                          
+00003c71  _ZN7_llnodeD1Ev                          
+0000104b  _ZN8EventLog10DropBeforeEj               
+00001199  _ZN8EventLog10EventCountEv               
+00001175  _ZN8EventLog10SoftRebootEh               
+000011b5  _ZN8EventLog11GetLastEvAtEh              
+000011f1  _ZN8EventLog12GetPrioInvAtEh             
+00000ebf  _ZN8EventLog12RecordEventsEb             
+000011d1  _ZN8EventLog14GetHigPrioEvAtEh           
+00000e59  _ZN8EventLog4GetIEv                      
+00000e85  _ZN8EventLog4GetPEv                      
+000010ad  _ZN8EventLog5ResetEv                     
+00000e8d  _ZN8EventLog6InitSWEv                    
+000011a7  _ZN8EventLog7GetHeadEv                   
+00000ed5  _ZN8EventLog9EmitEventEha6Events         
+00001211  _ZN8EventLogC1Ev                         
+00001211  _ZN8EventLogC2Ev                         
+0000126f  _ZN8EventLogD1Ev                         
+0000126f  _ZN8EventLogD2Ev                         
+0000222b  _ZN9TaskEntryC1ERKS_                     
+0000224f  _ZN9TaskEntryC1ERVKS_                    
+00002273  _ZN9TaskEntryC1Ehhjii                    
+000021f5  _ZN9TaskEntryC1Ev                        
+0000222b  _ZN9TaskEntryC2ERKS_                     
+0000224f  _ZN9TaskEntryC2ERVKS_                    
+00002273  _ZN9TaskEntryC2Ehhjii                    
+000021f5  _ZN9TaskEntryC2Ev                        
+000022c3  _ZN9TaskEntryD1Ev                        
+000022c3  _ZN9TaskEntryD2Ev                        
+00002391  _ZN9TaskEntryaSERKS_                     
+000023ff  _ZN9TaskEntryaSERVKS_                    
+0000187d  _ZNV10LinkedList11RemoveEntryER9TaskEntry
+0000197d  _ZNV10LinkedList11RemoveEntryEt          
+00001a11  _ZNV10LinkedList4DropEv                  
+000017a1  _ZNV10LinkedList7AddSortER9TaskEntry     
+00003acd  _ZNV10LinkedList7IsEmptyEv               
+00001a6f  _ZNV10LinkedList8PopFrontEv              
+0000387d  _ZNV11PerformanceaSERVKS_                
+00000b1f  _ZNV13TaskScheduler10NumOfTasksEv        
+00000ccf  _ZNV13TaskScheduler10RemoveTaskEhhPvt    
+00000d23  _ZNV13TaskScheduler10RemoveTaskEt        
+00000bfd  _ZNV13TaskScheduler11SyncTaskPerEhhxii   
+00000b2d  _ZNV13TaskScheduler13FetchNextTaskEb     
+000039eb  _ZNV13TaskScheduler6AddArgIfEEvT_        
+00003a15  _ZNV13TaskScheduler6AddArgIhEEvT_        
+00003a3f  _ZNV13TaskScheduler6AddArgIsEEvT_        
+00000ae3  _ZNV13TaskScheduler6InitHWEj             
+00000ca1  _ZNV13TaskScheduler7AddArgsEPvt          
+00003cd1  _ZNV13TaskScheduler7IsEmptyEv            
+000035d9  _ZNV13TaskScheduler8PopFrontEv           
+00000c81  _ZNV13TaskScheduler8SyncTaskE9TaskEntry  
+00000b69  _ZNV13TaskScheduler8SyncTaskEhhxbi       
+00003c81  _ZNV13TaskScheduler9PeekFrontEv          
+000022df  _ZNV9TaskEntry6AddArgEPvt                
+0000246d  _ZNV9TaskEntryaSERVS_                    
+00002357  _ZNVK9TaskEntry10GetTaskUIDEv            
+00002383  _ZNVK9TaskEntry12GetTimeStampEv          
+00002367  _ZNVK9TaskEntry6GetPIDEv                 
+00002347  _ZNVK9TaskEntry9GetLibUIDEv              
+00002375  _ZNVK9TaskEntry9GetPeriodEv              
+00003d11  _ZdaPv                                   
+00003d11  _ZdlPv                                   
+00003991  _Znaj                                    
+00003991  _Znwj                                    
+20000a6c  __STACK_END                              
+00000800  __STACK_SIZE                             
+2000046c  __STACK_TOP                              
+00000800  __SYSMEM_SIZE                            
+00004280  __TI_CINIT_Base                          
+00004298  __TI_CINIT_Limit                         
+00004264  __TI_Handler_Table_Base                  
+00004270  __TI_Handler_Table_Limit                 
+00003275  __TI_auto_init                           
+200016a8  __TI_cleanup_ptr                         
+000033bd  __TI_decompress_lzss                     
+00003c9f  __TI_decompress_none                     
+200016ac  __TI_dtors_ptr                           
+200016b0  __TI_enable_exit_profile_output          
+ffffffff  __TI_pprof_out_hndl                      
+ffffffff  __TI_prof_data_size                      
+ffffffff  __TI_prof_data_start                     
+00000000  __TI_static_base__                       
+00003cdd  __TI_zero_init                           
+00002f0f  __aeabi_atexit                           
+00003175  __aeabi_cdrcmple                         
+000032e5  __aeabi_d2f                              
+000036b5  __aeabi_d2iz                             
+000026e7  __aeabi_dadd                             
+00002a05  __aeabi_ddiv                             
+00002d79  __aeabi_dmul                             
+000026dd  __aeabi_dsub                             
+000038f1  __aeabi_f2d                              
+00001af3  __aeabi_idiv0                            
+000031fb  __aeabi_memclr                           
+000031fb  __aeabi_memclr4                          
+000031fb  __aeabi_memclr8                          
+000030d9  __aeabi_memcpy                           
+000030d9  __aeabi_memcpy4                          
+000030d9  __aeabi_memcpy8                          
+000031fd  __aeabi_memset                           
+000031fd  __aeabi_memset4                          
+000031fd  __aeabi_memset8                          
+00003785  __aeabi_uidiv                            
+00003785  __aeabi_uidivmod                         
+ffffffff  __binit__                                
+ffffffff  __c_args__                               
+00002ebd  __cxa_atexit                             
+00002e75  __cxa_finalize                           
+00003b03  __cxa_guard_abort                        
+00003af7  __cxa_guard_acquire                      
+00003aed  __cxa_guard_release                      
+00002eb7  __cxa_ia64_exit                          
+20001674  __dso_handle                             
+000024db  __mpu_init                               
+2000026c  __stack                                  
+00003b7d  _args_main                               
+000034e5  _c_int00                                 
+2000164c  _kerInterface                            
+200016cc  _lock                                    
+200016f0  _new_handler                             
+00003c07  _nop                                     
+200016d8  _periodMS                                
+00003bff  _register_lock                           
+00003bf9  _register_unlock                         
+20000a70  _sys_memory                              
+00003353  _system_post_cinit                       
+00003d2f  _system_pre_init                         
+200016d4  _systickSet                              
+200016d0  _unlock                                  
+0000353d  abort                                    
+00002f01  atexit                                   
+ffffffff  binit                                    
+00001e95  calloc                                   
+0000358d  copy_in                                  
+00003545  exit                                     
+00001bdf  free                                     
+20000000  g_pfnRAMVectors                          
+00000000  g_pfnVectors                             
+20001678  g_ui32SysClock                           
+000005fd  main                                     
+200016ec  main_func_sp                             
+00001b75  malloc                                   
+00001da9  memalign                                 
+000030d9  memcpy                                   
+00003203  memset                                   
+00001af5  minit                                    
+200016c0  msSinceStartup                           
+00001ca1  realloc                                  
+00002f69  trunc                                    
+00002f69  truncl                                   
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                     
+-------   ----                                     
+00000000  __TI_static_base__                       
+00000000  g_pfnVectors                             
+00000209  _Z22STATISTICS_KerCallbackv              
+000004cd  _Z11STAT_InitSWv                         
+000005fd  main                                     
+00000800  __STACK_SIZE                             
+00000800  __SYSMEM_SIZE                            
+000008a5  _Z14TS_RegCallbackP12_kernelEntryh       
+000008bf  _Z18_TS_KernelCallbackv                  
+0000094d  _Z15_TSSyncCallbackv                     
+00000967  _Z14TS_GlobalCheckv                      
+00000a93  _ZN13TaskScheduler4GetIEv                
+00000abf  _ZN13TaskScheduler4GetPEv                
+00000ac7  _ZN13TaskScheduler15ValidKernModuleEh    
+00000ae3  _ZNV13TaskScheduler6InitHWEj             
+00000b1f  _ZNV13TaskScheduler10NumOfTasksEv        
+00000b2d  _ZNV13TaskScheduler13FetchNextTaskEb     
+00000b69  _ZNV13TaskScheduler8SyncTaskEhhxbi       
+00000bfd  _ZNV13TaskScheduler11SyncTaskPerEhhxii   
+00000c81  _ZNV13TaskScheduler8SyncTaskE9TaskEntry  
+00000ca1  _ZNV13TaskScheduler7AddArgsEPvt          
+00000ccf  _ZNV13TaskScheduler10RemoveTaskEhhPvt    
+00000d23  _ZNV13TaskScheduler10RemoveTaskEt        
+00000d51  _ZN13TaskSchedulerC1Ev                   
+00000d51  _ZN13TaskSchedulerC2Ev                   
+00000d7d  _ZN13TaskSchedulerD1Ev                   
+00000d7d  _ZN13TaskSchedulerD2Ev                   
+00000da1  _Z21_EVLOG_KernelCallbackv               
+00000e59  _ZN8EventLog4GetIEv                      
+00000e85  _ZN8EventLog4GetPEv                      
+00000e8d  _ZN8EventLog6InitSWEv                    
+00000ebf  _ZN8EventLog12RecordEventsEb             
+00000ed5  _ZN8EventLog9EmitEventEha6Events         
+0000104b  _ZN8EventLog10DropBeforeEj               
+000010ad  _ZN8EventLog5ResetEv                     
+00001175  _ZN8EventLog10SoftRebootEh               
+00001199  _ZN8EventLog10EventCountEv               
+000011a7  _ZN8EventLog7GetHeadEv                   
+000011b5  _ZN8EventLog11GetLastEvAtEh              
+000011d1  _ZN8EventLog14GetHigPrioEvAtEh           
+000011f1  _ZN8EventLog12GetPrioInvAtEh             
+00001211  _ZN8EventLogC1Ev                         
+00001211  _ZN8EventLogC2Ev                         
+0000126f  _ZN8EventLogD1Ev                         
+0000126f  _ZN8EventLogD2Ev                         
+00001281  UARTStdioConfig                          
+000012c7  UARTwrite                                
+0000130d  UARTgets                                 
+000013c7  UARTgetc                                 
+000013ed  UARTvprintf                              
+000016e7  UARTprintf                               
+0000171d  _ZN7_llnodeC1Ev                          
+0000171d  _ZN7_llnodeC2Ev                          
+00001739  _ZN7_llnodeC1ERV9TaskEntryPVS_S4_        
+00001739  _ZN7_llnodeC2ERV9TaskEntryPVS_S4_        
+00001763  _ZN10LinkedListD1Ev                      
+00001763  _ZN10LinkedListD2Ev                      
+0000177f  _ZN10LinkedListC1Ev                      
+0000177f  _ZN10LinkedListC2Ev                      
+000017a1  _ZNV10LinkedList7AddSortER9TaskEntry     
+0000187d  _ZNV10LinkedList11RemoveEntryER9TaskEntry
+0000197d  _ZNV10LinkedList11RemoveEntryEt          
+00001a11  _ZNV10LinkedList4DropEv                  
+00001a6f  _ZNV10LinkedList8PopFrontEv              
+00001af3  __aeabi_idiv0                            
+00001af5  minit                                    
+00001b75  malloc                                   
+00001bdf  free                                     
+00001ca1  realloc                                  
+00001da9  memalign                                 
+00001e95  calloc                                   
+00001ec5  _Z23_TESTMOD_KernelCallbackv             
+00001f73  _ZN7TestMod4GetIEv                       
+00001f9f  _ZN7TestMod4GetPEv                       
+00001fa7  _ZN7TestMod6InitHWEv                     
+00001fb9  _ZN7TestMod6InitSWEv                     
+00001fd9  _ZN7TestMod10PrintInt16Esh               
+00002015  _ZN7TestMod11PrintStringEPc              
+00002085  _ZN7TestMod10PrintFloatEf                
+000020fb  _ZN7TestModC1Ev                          
+000020fb  _ZN7TestModC2Ev                          
+0000210f  _ZN7TestModD1Ev                          
+0000210f  _ZN7TestModD2Ev                          
+000021f5  _ZN9TaskEntryC1Ev                        
+000021f5  _ZN9TaskEntryC2Ev                        
+0000222b  _ZN9TaskEntryC1ERKS_                     
+0000222b  _ZN9TaskEntryC2ERKS_                     
+0000224f  _ZN9TaskEntryC1ERVKS_                    
+0000224f  _ZN9TaskEntryC2ERVKS_                    
+00002273  _ZN9TaskEntryC1Ehhjii                    
+00002273  _ZN9TaskEntryC2Ehhjii                    
+000022c3  _ZN9TaskEntryD1Ev                        
+000022c3  _ZN9TaskEntryD2Ev                        
+000022df  _ZNV9TaskEntry6AddArgEPvt                
+00002347  _ZNVK9TaskEntry9GetLibUIDEv              
+00002357  _ZNVK9TaskEntry10GetTaskUIDEv            
+00002367  _ZNVK9TaskEntry6GetPIDEv                 
+00002375  _ZNVK9TaskEntry9GetPeriodEv              
+00002383  _ZNVK9TaskEntry12GetTimeStampEv          
+00002391  _ZN9TaskEntryaSERKS_                     
+000023ff  _ZN9TaskEntryaSERVKS_                    
+0000246d  _ZNV9TaskEntryaSERVS_                    
+000024db  __mpu_init                               
+000024dd  SysCtlClockFreqSet                       
+000026dd  __aeabi_dsub                             
+000026e7  __aeabi_dadd                             
+00002893  _Z21__default_new_handlerv               
+00002895  UART0RxIntHandler                        
+000028e5  _ZN10SerialPort4GetIEv                   
+00002911  _ZN10SerialPort4GetPEv                   
+00002919  _ZN10SerialPort6InitHWEv                 
+00002987  _ZN10SerialPort4SendEPKcz                
+000029af  _ZN10SerialPort7AddHookEPFvPhPtE         
+000029c1  _ZN10SerialPortC1Ev                      
+000029c1  _ZN10SerialPortC2Ev                      
+000029cd  _ZN10SerialPortD1Ev                      
+000029cd  _ZN10SerialPortD2Ev                      
+00002a05  __aeabi_ddiv                             
+00002b3b  GPIOPadConfigSet                         
+00002c6d  UNUSED                                   
+00002c77  HAL_BOARD_CLOCK_Init                     
+00002c93  HAL_BOARD_Reset                          
+00002c9b  HAL_DelayUS                              
+00002d0b  _TM4CMsToCycles                          
+00002d25  HAL_BOARD_InterruptEnable                
+00002d3d  HAL_SetPWM                               
+00002d4f  HAL_GetPWM                               
+00002d79  __aeabi_dmul                             
+00002e75  __cxa_finalize                           
+00002eb7  __cxa_ia64_exit                          
+00002ebd  __cxa_atexit                             
+00002f01  atexit                                   
+00002f0f  __aeabi_atexit                           
+00002f69  trunc                                    
+00002f69  truncl                                   
+00003025  HAL_TS_InitSysTick                       
+0000309b  HAL_TS_StartSysTick                      
+000030b1  HAL_TS_StopSysTick                       
+000030c7  HAL_TS_GetTimeStepMS                     
+000030d9  __aeabi_memcpy                           
+000030d9  __aeabi_memcpy4                          
+000030d9  __aeabi_memcpy8                          
+000030d9  memcpy                                   
+00003175  __aeabi_cdrcmple                         
+000031fb  __aeabi_memclr                           
+000031fb  __aeabi_memclr4                          
+000031fb  __aeabi_memclr8                          
+000031fd  __aeabi_memset                           
+000031fd  __aeabi_memset4                          
+000031fd  __aeabi_memset8                          
+00003203  memset                                   
+00003275  __TI_auto_init                           
+000032e5  __aeabi_d2f                              
+00003353  _system_post_cinit                       
+00003355  IntEnable                                
+000033bd  __TI_decompress_lzss                     
+00003425  _ZN11Performance11TaskEndHookERKy        
+00003489  _ZN11Performance13TaskStartHookERKyS1_S1_
+000034e5  _c_int00                                 
+00003539  C$$EXIT                                  
+0000353d  abort                                    
+00003545  exit                                     
+0000358d  copy_in                                  
+000035d9  _ZNV13TaskScheduler8PopFrontEv           
+00003625  GPIOPinConfigure                         
+000036b5  __aeabi_d2iz                             
+000036fd  UARTConfigSetExpClk                      
+00003785  __aeabi_uidiv                            
+00003785  __aeabi_uidivmod                         
+000037c5  _ZN11PerformanceaSERKS_                  
+00003803  _ZN11PerformanceaSERVKS_                 
+00003841  _ZN11PerformanceC1Ev                     
+0000387d  _ZNV11PerformanceaSERVKS_                
+000038b9  SysCtlPeripheralPresent                  
+000038f1  __aeabi_f2d                              
+00003929  IntRegister                              
+0000395d  SysCtlPeripheralEnable                   
+00003991  _Znaj                                    
+00003991  _Znwj                                    
+000039c1  GPIODirModeSet                           
+000039eb  _ZNV13TaskScheduler6AddArgIfEEvT_        
+00003a15  _ZNV13TaskScheduler6AddArgIhEEvT_        
+00003a3f  _ZNV13TaskScheduler6AddArgIsEEvT_        
+00003a69  IntPrioritySet                           
+00003a8d  UARTDisable                              
+00003acd  _ZNV10LinkedList7IsEmptyEv               
+00003aed  __cxa_guard_release                      
+00003af7  __cxa_guard_acquire                      
+00003b03  __cxa_guard_abort                        
+00003b0d  PWMPulseWidthGet                         
+00003b2b  PWMPulseWidthSet                         
+00003b49  SysTickIntRegister                       
+00003b65  UARTIntRegister                          
+00003b7d  _args_main                               
+00003b95  FPUStackingEnable                        
+00003ba9  SysTickDisable                           
+00003bbd  SysTickEnable                            
+00003bd1  SysTickIntEnable                         
+00003be5  UARTEnable                               
+00003bf9  _register_unlock                         
+00003bff  _register_lock                           
+00003c07  _nop                                     
+00003c0d  GPIOPinTypeUART                          
+00003c21  FPUEnable                                
+00003c31  IntMasterDisable                         
+00003c41  IntMasterEnable                          
+00003c51  SysCtlReset                              
+00003c61  SysTickPeriodSet                         
+00003c71  _ZN7_llnodeD1Ev                          
+00003c81  _ZNV13TaskScheduler9PeekFrontEv          
+00003c91  UARTCharsAvail                           
+00003c9f  __TI_decompress_none                     
+00003cad  CPUcpsid                                 
+00003cb9  CPUcpsie                                 
+00003cc5  _ZN11PerformanceD1Ev                     
+00003cd1  _ZNV13TaskScheduler7IsEmptyEv            
+00003cdd  __TI_zero_init                           
+00003ce9  ResetISR                                 
+00003cf5  UARTCharGet                              
+00003cff  UARTCharPut                              
+00003d09  UARTIntEnable                            
+00003d11  _ZdaPv                                   
+00003d11  _ZdlPv                                   
+00003d19  SysCtlDelay                              
+00003d1f  UARTClockSourceSet                       
+00003d25  UARTFIFOLevelSet                         
+00003d2b  UARTIntClear                             
+00003d2f  _system_pre_init                         
+00004264  __TI_Handler_Table_Base                  
+00004270  __TI_Handler_Table_Limit                 
+00004280  __TI_CINIT_Base                          
+00004298  __TI_CINIT_Limit                         
+20000000  g_pfnRAMVectors                          
+2000026c  __stack                                  
+2000046c  __STACK_TOP                              
+20000a6c  __STACK_END                              
+20000a70  _sys_memory                              
+2000164c  _kerInterface                            
+20001674  __dso_handle                             
+20001678  g_ui32SysClock                           
+200016a8  __TI_cleanup_ptr                         
+200016ac  __TI_dtors_ptr                           
+200016b0  __TI_enable_exit_profile_output          
+200016c0  msSinceStartup                           
+200016cc  _lock                                    
+200016d0  _unlock                                  
+200016d4  _systickSet                              
+200016d8  _periodMS                                
+200016ec  main_func_sp                             
+200016f0  _new_handler                             
+ffffffff  __TI_pprof_out_hndl                      
+ffffffff  __TI_prof_data_size                      
+ffffffff  __TI_prof_data_start                     
+ffffffff  __binit__                                
+ffffffff  __c_args__                               
+ffffffff  binit                                    
+UNDEFED   SHT$$INIT_ARRAY$$Base                    
+UNDEFED   SHT$$INIT_ARRAY$$Limit                   
+
+[258 symbols]
