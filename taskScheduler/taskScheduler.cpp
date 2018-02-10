@@ -413,6 +413,39 @@ bool TaskScheduler::RemoveTask(uint16_t PIDarg) volatile
     return retVal;
 }
 
+/**
+ * Return first element from task queue
+ * @note Once this function is called, _lastIndex pointer, that points to last
+ * added task is set to 0 (because it's not possible to know whether that task
+ * got deleted or no). This prevents calling AddArgs function until new task
+ * is added
+ * @return first element from task queue and delete it (by moving iterators).
+ *          If the queue is empty it resets the queue.
+ */
+TaskEntry TaskScheduler::PopFront() volatile
+{
+    //  Sensitive task, disable all interrupts
+    HAL_BOARD_InterruptEnable(false);
+
+    TaskEntry retVal;
+
+    //TaskEntry retVal(_taskLog.PopFront());
+    retVal = _taskLog.PopFront();
+
+    _lastIndex = 0;
+    HAL_BOARD_InterruptEnable(true);
+    return retVal;
+}
+
+/**
+ * Peek at the first element of task list but leave it in the list
+ * @return reference to first task in task list
+ */
+volatile TaskEntry&  TaskScheduler::PeekFront() volatile
+{
+    return _taskLog.head->data;
+}
+
 ///-----------------------------------------------------------------------------
 ///                      Class constructor & destructor              [PROTECTED]
 ///-----------------------------------------------------------------------------

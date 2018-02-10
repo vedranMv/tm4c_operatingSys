@@ -1,7 +1,7 @@
 /**
  * Example of a simplistic operating system for TM4C1294
  *
- * This code is meant to show implementation of small operating system consisting
+ * This code shows implementation of small operating system consisting
  * of a task scheduler and an event logger. Task scheduler is meant to execute
  * services provided by different modules available in the operating system
  * while event logger provides interface for modules to log their status
@@ -197,8 +197,9 @@ int main(void)
     EventLog::GetI().RecordEvents(true);
     DEBUG_WRITE("Initialized event logger... \n");
 
-    //  Initialize hardware used by task scheduler, set time step to be 1ms
-    //  Time step gives minimum time resolution when specifying execution time
+    //  Initialize hardware used by task scheduler, set time step to be 1ms.
+    //  Time step gives minimum time resolution when specifying execution time.
+    //  This function call also starts SysTick timer which keeps internal time!
     ts.InitHW(1);
     DEBUG_WRITE("Initialized task scheduler... \n");
 
