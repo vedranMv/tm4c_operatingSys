@@ -220,11 +220,11 @@ class TaskScheduler
 		 *  ->volatile pointer (because it can change from within interrupt) to
 		 *  a volatile object (object can be removed from within interrupt)
 		 */
-		volatile _llnode    * volatile _lastIndex;
+		volatile _llnode* volatile _lastIndex;
 
         //  Interface with task scheduler - provides memory space and function
         //  to call in order for task scheduler to request service from this module
-        struct _kernelEntry _tsKer;
+        struct _kernelEntry _ker;
 };
 
 extern void TS_GlobalCheck(void);

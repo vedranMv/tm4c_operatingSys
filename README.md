@@ -22,6 +22,8 @@ In this whole process TS is not required to know the name of the function which 
 
 Task scheduler implementation is bloated with ``volatile`` keywords because in the project where it was used beforehand content of TaskScheduler singleton was often changed inside the interrupts. To prevent any compiler optimization in these areas it was required to use volatile on all critical member variables/functions.
 
+Small part of task scheduler is also a "Task profiler". This object keeps track of execution data about the task: how many times the task has run, average run time, longest run time, how often it misses its starting time and by how much time. It has minimal impact on performance and is very useful if you're designing a real-time system. Profiling can be disabled for release code by commenting out ``_TS_PERF_ANALYSIS_`` macro from ``taskScheduler/taskScheduler.h`` file.
+
 ## Event logger (EL)
 Event logger is a smaller piece of code which allows different modules to log their status during run-time. Currently, event logger supports 7 events: Uninitialized, Startup, Initialized, OK, Error, Hang and Priority inversion\*. Every module can emit any of those events during run-time and they all get picked up by the event logger and saved together with the time stamp of the event. Later on, event log can be retrieved to track error in the system as it shows when each event happened, which module emitted event and during which service execution was the event emitted.
 

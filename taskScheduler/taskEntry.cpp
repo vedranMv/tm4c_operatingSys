@@ -108,7 +108,7 @@ TaskEntry& TaskEntry::operator= (const TaskEntry& arg)
     _period = arg._period;
     _repeats = arg._repeats;
     _PID = arg._PID;
-    _perf = arg._perf;
+    Perf = arg.Perf;
 
     _args = new uint8_t[_argN];
     memcpy((void*)_args, (void*)(arg._args), _argN);
@@ -124,7 +124,7 @@ volatile TaskEntry& TaskEntry::operator= (const volatile TaskEntry& arg)
     _period = arg._period;
     _repeats = arg._repeats;
     _PID = arg._PID;
-    _perf = arg._perf;
+    Perf = arg.Perf;
 
     _args = new uint8_t[_argN];
     memcpy((void*)_args, (void*)(arg._args), _argN);
@@ -140,7 +140,7 @@ volatile TaskEntry& TaskEntry::operator= (volatile TaskEntry& arg) volatile
     _period = arg._period;
     _repeats = arg._repeats;
     _PID = arg._PID;
-    _perf = arg._perf;
+    Perf = arg.Perf;
 
     _args = new uint8_t[_argN];
     memcpy((void*)_args, (void*)(arg._args), _argN);

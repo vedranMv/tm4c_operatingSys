@@ -22,6 +22,15 @@ class Performance
     public:
         Performance(): startTimeMissTot(0), startTimeMissCnt(0), taskRuns(0),
                        maxRT(0), _lastStartT(0), msAcc(0), accRT(0) {};
+        Performance(volatile Performance &arg)
+        {
+            startTimeMissTot = arg.startTimeMissTot;
+            startTimeMissCnt = arg.startTimeMissCnt;
+            taskRuns = arg.taskRuns;
+            maxRT = arg.maxRT;
+            msAcc = arg.msAcc;
+            accRT = arg.accRT;
+        }
         ~Performance() {};
 
         void TaskStartHook(const uint64_t &timestamp,
@@ -41,6 +50,7 @@ class Performance
             _lastStartT = timestamp;
             taskRuns++;
         }
+
         void TaskEndHook(const uint64_t &timestamp)
         {
             //  Calculate run-time of task once it's finished
@@ -56,7 +66,7 @@ class Performance
         }
 
         //  TODO: Make sure to include all new variables in these assignments
-        Performance& operator= (Performance &arg)
+        volatile Performance& operator= (volatile Performance &arg) volatile
         {
             startTimeMissTot = arg.startTimeMissTot;
             startTimeMissCnt = arg.startTimeMissCnt;
@@ -67,21 +77,55 @@ class Performance
 
             return *this;
         }
+//        const Performance operator= (volatile const Performance arg)
+//        {
+//            startTimeMissTot = arg.startTimeMissTot;
+//            startTimeMissCnt = arg.startTimeMissCnt;
+//            taskRuns = arg.taskRuns;
+//            maxRT = arg.maxRT;
+//            msAcc = arg.msAcc;
+//            accRT = arg.accRT;
+//
+//            return *this;
+//        }
+//
+//        volatile Performance operator= (volatile const Performance arg) volatile
+//        {
+//            startTimeMissTot = arg.startTimeMissTot;
+//            startTimeMissCnt = arg.startTimeMissCnt;
+//            taskRuns = arg.taskRuns;
+//            maxRT = arg.maxRT;
+//            msAcc = arg.msAcc;
+//            accRT = arg.accRT;
+//
+//            return *this;
+//        }
+//
+//        Performance operator= (Performance arg)
+//        {
+//            startTimeMissTot = arg.startTimeMissTot;
+//            startTimeMissCnt = arg.startTimeMissCnt;
+//            taskRuns = arg.taskRuns;
+//            maxRT = arg.maxRT;
+//            msAcc = arg.msAcc;
+//            accRT = arg.accRT;
+//
+//            return *this;
+//        }
 
+//        const Performance& operator= (const Performance &arg)
+//        {
+//            startTimeMissTot = arg.startTimeMissTot;
+//            startTimeMissCnt = arg.startTimeMissCnt;
+//            taskRuns = arg.taskRuns;
+//            maxRT = arg.maxRT;
+//            msAcc = arg.msAcc;
+//            accRT = arg.accRT;
+//
+//            return *this;
+//        }
 
-        Performance& operator= (const Performance &arg)
-        {
-            startTimeMissTot = arg.startTimeMissTot;
-            startTimeMissCnt = arg.startTimeMissCnt;
-            taskRuns = arg.taskRuns;
-            maxRT = arg.maxRT;
-            msAcc = arg.msAcc;
-            accRT = arg.accRT;
-
-            return *this;
-        }
-
-        Performance& operator= (const volatile Performance &arg)
+        const volatile Performance& operator= (const volatile Performance &arg)
         {
             startTimeMissTot = arg.startTimeMissTot;
             startTimeMissCnt = arg.startTimeMissCnt;

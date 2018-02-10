@@ -17,7 +17,6 @@ class TaskEntry
 {
     // Functions & classes needing direct access to all members
     friend class TaskScheduler;
-    friend void TSSyncCallback(void);
     friend void TS_GlobalCheck(void);
     friend class LinkedList;
 
@@ -42,7 +41,7 @@ class TaskEntry
         volatile TaskEntry& operator= (volatile TaskEntry& arg) volatile;
 
         //  Performance data regarding the task
-        Performance         _perf;
+        Performance         Perf;
 
     protected:
         //  Unique identifier for library to request service from
@@ -64,6 +63,7 @@ class TaskEntry
         int32_t             _repeats;
         //  Unique process ID
         volatile uint16_t   _PID;
+
 };
 
 #endif /* ROVERKERNEL_TASKSCHEDULER_TASKENTRY_C_ */

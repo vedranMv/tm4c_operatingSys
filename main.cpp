@@ -107,28 +107,29 @@ void STATISTICS_KerCallback(void)
                 DEBUG_WRITE("\tNext execution of the task at: %d ms\n", \
                             (uint32_t)task->GetTimeStamp());
 
-                DEBUG_WRITE("\tSo far task has completed %ul runs with ",
-                            task->_perf.taskRuns);
+
+                DEBUG_WRITE("\tSo far task has completed %u runs with ",
+                        task->Perf.taskRuns);
 
                 //  Calculate average runtime
-                float runTim = (float)(task->_perf.accRT);
-                runTim += ((float)task->_perf.msAcc)/1000.0f;
+                float runTim = (float)(task->Perf.accRT);
+                runTim += ((float)task->Perf.msAcc)/1000.0f;
 
-                if (task->_perf.taskRuns > 0)
-                    runTim = runTim / ((float)task->_perf.taskRuns);
+                if (task->Perf.taskRuns > 0)
+                    runTim = runTim / ((float)task->Perf.taskRuns);
                 else
                     runTim = 0.0;
 
                 DEBUG_WRITE("average runtime of %d.%d ms \n", _FTOI_(runTim));
 
                 DEBUG_WRITE("\tStart time was missed on %d runs by ",
-                            (uint32_t)(task->_perf.startTimeMissCnt));
+                            (uint32_t)(task->Perf.startTimeMissCnt));
 
                 //  Calculate average time by the which the deadline was missed
                 float missTime = 0.0;
-                if (task->_perf.startTimeMissCnt > 0)
-                    missTime = ((float)task->_perf.startTimeMissTot) /
-                               ((float)task->_perf.startTimeMissCnt);
+                if (task->Perf.startTimeMissCnt > 0)
+                    missTime = ((float)task->Perf.startTimeMissTot) /
+                               ((float)task->Perf.startTimeMissCnt);
                 DEBUG_WRITE("%d.%d ms on average.\n\n", _FTOI_(missTime));
             }
         }
