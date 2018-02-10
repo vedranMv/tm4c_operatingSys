@@ -7,6 +7,12 @@ Code is taken from a [bigger project I worked on](https://github.com/vedranMv/ro
 
 In the project above, I built a rover based on this scheduler and event logger. Through it, I integrated 4-5 other sensors and actuators, including the ESP8266 wifi module. In combination with GUI running on my PC, this code allowed me to execute remote commands, reconfigure software of during run-time and track health of each of the sensors connected to it. Pretty cool project if you ask me :D
 
+You can see how remote execution and event logging is used in this video
+<br/>
+<video width="640">
+<source src="https://hsr.duckdns.org/videos/Demo.mp4">
+</video>
+
 ## Task scheduler (TS)
 Task scheduler uses SysTick peripheral to run internal clock. This clock counts milliseconds past since startup. Counting steps can be configured depending on the application. For systems that run fast tasks, step size will need to be small (few milliseconds), on the other hand systems executing very few, longer tasks can use longer steps (few hundred milliseconds).
 
